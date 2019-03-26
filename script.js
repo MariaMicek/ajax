@@ -1,16 +1,24 @@
-class Person {
-    constructor(name) {
-        this.name = name
+class NumbersContainer {
+    constructor(){
+        this.numbers = []
     }
 
-    changeName(newName) {
-        this.name = newName
-        return this             //zwraca this czyli obiekt, tak samo działa w przypadku tablic
+    addNumber(number){
+        this.numbers = this.numbers.concat(number)
+        return this
     }
-
-
 }
-const person1 = new Person('Marysia')
 
-person1.changeName('Ela').changeName('Iza').changeName('Ala')   //żeby kilka metod pod rząd zadziałało, to muszą zwracać obiekt (a nie undefined), żeby następna też mogła się wykonać
-console.log(person1.name)
+const container1 = new NumbersContainer()
+
+container1.addNumber(4)
+console.log(JSON.stringify(container1))
+console.log(container1.numbers)
+
+container1.addNumber(6)
+console.log(container1)
+console.log(container1.numbers)
+
+container1.addNumber(4).addNumber(9).addNumber(11)
+console.log(container1)
+console.log(container1.numbers)
